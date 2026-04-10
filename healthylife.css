@@ -944,23 +944,82 @@ button {
   margin-bottom: 40px;
 }
 
+.waist-cards-header {
+  grid-column: 1 / -1;
+  padding: clamp(22px, 3.5vw, 34px) clamp(24px, 5vw, 56px);
+  text-align: center;
+  border-bottom: 1px solid rgba(232, 223, 200, 0.9);
+  background: linear-gradient(180deg, rgba(245, 240, 232, 0.96), white 100%);
+}
+
+.waist-cards-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(90, 122, 74, 0.1);
+  color: var(--sage);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.waist-cards-title {
+  font-size: clamp(1.05rem, 1.9vw, 1.32rem);
+  line-height: 1.5;
+  color: var(--text-mid);
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
 .waist-card {
   padding: clamp(32px, 5vw, 56px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.waist-icon {
-  font-size: 2.5rem;
-  color: var(--sage-light);
-  margin-bottom: 12px;
+.waist-card-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.waist-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sage);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.96),
+    rgba(168, 200, 154, 0.18)
+  );
+  border: 1px solid rgba(122, 158, 104, 0.22);
+  box-shadow: 0 14px 30px rgba(90, 122, 74, 0.1);
+}
+
+.waist-icon-svg {
+  width: 40px;
+  height: 40px;
   display: block;
 }
 
 .waist-card h3 {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: clamp(1.75rem, 2.6vw, 2.2rem);
   color: var(--forest);
-  margin-bottom: 24px;
+  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -982,6 +1041,10 @@ button {
 .waist-ideal {
   background: rgba(58, 122, 90, 0.07);
   border: 1px solid rgba(58, 122, 90, 0.15);
+}
+
+.waist-card > :last-child {
+  margin-bottom: 0;
 }
 
 .waist-label {
@@ -1027,10 +1090,22 @@ button {
   background: var(--cream-mid);
 }
 
-.divider-leaf {
-  font-size: 1.5rem;
+.divider-glyph {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--sage-light);
-  writing-mode: horizontal-tb;
+  background: rgba(168, 200, 154, 0.12);
+  border: 1px solid rgba(122, 158, 104, 0.18);
+}
+
+.divider-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 .myth-box {
@@ -1212,6 +1287,31 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.replace-intro {
+  position: relative;
+  font-size: 0.96rem;
+  color: rgba(245, 240, 232, 0.9);
+  line-height: 1.72;
+  margin: 0 0 18px;
+  padding-left: 18px;
+  max-width: 36rem;
+}
+
+.replace-intro::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 4px;
+  height: calc(100% - 0.7rem);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    var(--gold-light),
+    rgba(200, 168, 75, 0.15)
+  );
+}
+
 .action-list {
   display: flex;
   flex-direction: column;
@@ -1256,6 +1356,8 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   padding: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .replace-head {
@@ -2163,6 +2265,12 @@ button {
   color: rgba(245, 240, 232, 0.28);
 }
 
+.linkedin-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: #1da1f2;
+}
+
 /* ======= BACK TO TOP ======= */
 .back-top {
   position: fixed;
@@ -2324,6 +2432,16 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .waist-cards-header {
+    padding: 22px 20px;
+  }
+
+  .waist-icon-badge {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+  }
+
   .waist-divider {
     flex-direction: row;
     padding: 0 20px;
@@ -2334,8 +2452,9 @@ button {
     height: 1px;
   }
 
-  .waist-divider .divider-leaf {
-    writing-mode: horizontal-tb;
+  .waist-divider .divider-glyph {
+    width: 38px;
+    height: 38px;
   }
 
   .mindset-step {
@@ -2375,6 +2494,11 @@ button {
   .formula-card,
   .yoga-card {
     padding: 24px 20px;
+  }
+
+  .replace-intro {
+    font-size: 0.92rem;
+    padding-left: 14px;
   }
 
   .share-buttons {
